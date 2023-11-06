@@ -1,0 +1,11 @@
+{
+  "clientId": "custom",
+  "name": "custom",
+  "enabled": true,
+  "redirectUris": [],
+  "publicClient": true,
+  "standardFlowEnabled": true,
+  "implicitFlowEnabled": true,
+  "directAccessGrantsEnabled": true,
+  "serviceAccountsEnabled": false
+}

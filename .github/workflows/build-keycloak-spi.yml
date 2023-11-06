@@ -1,0 +1,28 @@
+name: Build Keycloak SPI Jar with Docker
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Build with Maven Docker container
+      run: |
+        docker run --rm \
+          -v ${{ github.workspace }}:/usr/src/myapp \
+          -w /usr/src/myapp \
+          maven:3.8.4-openjdk-17 \
+          mvn clean install
+
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v2
+      with:
+        name: keycloak-custom-form-param-mapper
+        path: target/*.jar

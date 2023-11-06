@@ -1,0 +1,22 @@
+{
+  "name": "custom-client-scope",
+  "description": "custom-client-scope",
+  "protocol": "openid-connect",
+  "attributes": {
+    "include.in.token.scope": "true",
+    "display.on.consent.screen": "false"
+  },
+  "protocolMappers": [
+    {
+      "name": "custom-form-param-mapper",
+      "protocol": "openid-connect",
+      "protocolMapper": "custom-form-param-mapper",
+      "consentRequired": false,
+      "config": {
+        "access.token.claim": "true",
+        "claim.name": "custom.claim_receiced_from_user",
+        "form.param.name": "form_param_to_claim"
+      }
+    }
+  ]
+}

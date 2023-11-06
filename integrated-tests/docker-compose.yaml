@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  keycloak-script-runner:
+    build: .
+    volumes:
+      - ./resources:/app/resources:ro
+      - ./1-config-client.sh:/app/1-config-client.sh
+      - ./2-token.sh:/app/2-token.sh
+    environment:
+      - BASE_URL=http://host.docker.internal:8080
+      - REALM=master
+      - USER=admin
+      - PASS=admin
+      - CLIENT_SCOPE_FILE=/app/resources/client-scope.json
+      - CLIENT_FILE=/app/resources/client.json
+      - PARAM_VALUE=exampleFormParamToClaim
+    entrypoint: "bash"
