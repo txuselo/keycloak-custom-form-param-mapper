@@ -15,7 +15,7 @@ services:
       - 8443:8443
       - 8787:8787
     volumes:
-      - ./target/keycloak-add-request-header-claim.jar:/opt/keycloak/providers/keycloak-add-request-header-claim.jar
+      - ./target/keycloak-custom-form-param-mapper.jar:/opt/keycloak/providers/keycloak-custom-form-param-mapper.jar
   keycloak-spi-builder:
     image: maven:3.8.4-openjdk-17 
     volumes:
